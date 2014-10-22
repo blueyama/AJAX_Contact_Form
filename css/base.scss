@@ -1,0 +1,106 @@
+$form-color: #242424;
+$bg-color1: #a69175;
+$bg-color2: #765642;
+$font-color: #eee;
+$alert-color: #ff5c3c;
+
+/* Font size converts to px and rem sizes. The font px size will overwrite
+rem size in older browsers therefore the redundant font-size attribute. */
+@mixin font-size($sizeValue: 1.6)
+{
+    font-size: ($sizeValue * 10) + px;
+    font-size: ($sizeValue * .625) + rem;
+}
+
+
+*, *:after, *:before {  box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+
+html, body {
+    min-height: 100%;
+}
+
+html {
+    background: -webkit-linear-gradient(left, $bg-color1, $bg-color2); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, $bg-color1, $bg-color2); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, $bg-color1, $bg-color2); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, $bg-color1, $bg-color2); /* Standard syntax */
+
+    position: relative;
+}
+body {
+    color: $font-color;
+    font-family: 'Raleway', Arial, Helvetica, Verdana, Geneva, sans-serif;
+    @include font-size(2);
+    font-weight: 400;
+    margin: 100px 0 100px 0;
+    padding: 0;
+}
+
+#main-article
+{
+    margin: 0 auto 0 auto;
+    max-width: 1000px;
+    padding: 0 10px 10px 10px;
+    width: 100%;
+
+    section {
+        width: 100%;
+        background-color: $form-color; /* medium grey */
+        margin: 0px auto 50px auto;
+        padding: 20px 15px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+    }
+}
+
+// CONTACT page
+#drush-form
+{
+    margin: 20px auto;
+    width: 80%;
+
+    fieldset {
+        border: 1px solid #ccc;
+        padding: 15px;
+
+        div {
+            margin: 1px 0 10px 0;
+        }
+    }
+    legend {
+        padding: 0 5px;
+        text-align: right;
+    }
+    label {
+        @include font-size(2);
+        display: inline-block;
+        width: 170px;
+    }
+    input, textarea {
+        @include font-size(1.6);
+        font-family: Arial, Helvetica, Verdana, Geneva, sans-serif;
+        font-style: italic;
+        width: 80%;
+        min-width: 180px;
+    }
+    textarea {
+        height: 200px;
+    }
+    .help-block {
+        color: $alert-color;
+        @include font-size(1.5);
+    }
+    .help {
+        display: none;
+    }
+    .submit {
+        @include font-size(1.8);
+        margin: 20px auto;
+        font-weight: bold;
+    }
+}
+
